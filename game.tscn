@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpa4uemrqi525"]
+
+[ext_resource type="Script" uid="uid://duh3v855i5rws" path="res://game.gd" id="1_7jktm"]
+[ext_resource type="Script" uid="uid://dbjv3fuqk1fc8" path="res://tiles.gd" id="2_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://cnenj0wsk7fg4" path="res://main_character.tscn" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://75iik803mixo" path="res://logo.png" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dtud8st12aqut" path="res://campfire.tscn" id="4_ryrav"]
+[ext_resource type="Texture2D" uid="uid://cgrohcxtev4ku" path="res://pinetree.png" id="5_ryrav"]
+
+[node name="game" type="Node"]
+script = ExtResource("1_7jktm")
+
+[node name="tiles" type="Node2D" parent="."]
+script = ExtResource("2_j5wjh")
+
+[node name="spawned" type="Node2D" parent="."]
+
+[node name="main character" parent="." instance=ExtResource("3_7jktm")]
+z_index = 1
+position = Vector2(943, 587)
+collision_layer = 5
+
+[node name="campfire" parent="." instance=ExtResource("4_ryrav")]
+position = Vector2(846, 667)
+
+[node name="Pinetree" type="Sprite2D" parent="."]
+position = Vector2(592, 367)
+texture = ExtResource("5_ryrav")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(846, 514)
+texture = ExtResource("4_fc0e3")

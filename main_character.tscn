@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnenj0wsk7fg4"]
+
+[ext_resource type="Script" uid="uid://c1f15soh85xto" path="res://main_character.gd" id="1_wmkwl"]
+[ext_resource type="Texture2D" uid="uid://cmb4fjlp44hqv" path="res://emo goat.png" id="2_uvl38"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eow3j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5wjh"]
+radius = 176.556
+
+[node name="main character" type="CharacterBody2D"]
+script = ExtResource("1_wmkwl")
+
+[node name="EmoGoat" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_uvl38")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eow3j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 74, -3, 79, 11, 80, 20, 67, 1, 67)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="interact area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact area"]
+shape = SubResource("CircleShape2D_j5wjh")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -144.0
+offset_top = -120.0
+offset_right = 144.0
+offset_bottom = -93.0
+
+[connection signal="body_exited" from="interact area" to="." method="_on_interact_area_body_exited"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_progress_bar_value_changed"]

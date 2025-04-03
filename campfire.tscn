@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtud8st12aqut"]
+
+[ext_resource type="Texture2D" uid="uid://doorcw2rhfvdw" path="res://rock firepit.png" id="1_b5him"]
+[ext_resource type="Script" uid="uid://i2tfcftjcf34" path="res://campfire.gd" id="1_dk7h0"]
+[ext_resource type="Texture2D" uid="uid://buiyv27v0vr6w" path="res://ashes.png" id="2_y2ey3"]
+[ext_resource type="Texture2D" uid="uid://0a3noct5xnva" path="res://E.png" id="4_t2ea5"]
+
+[node name="campfire" type="StaticBody2D"]
+modulate = Color(1, 0.809442, 0.777597, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_dk7h0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, 56, 33, 55, 59, 37, 49, 23, 30, 9, -24, 8, -50, 18, -57, 35, -55, 47, -32, 54)
+
+[node name="RockFirepit" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("1_b5him")
+
+[node name="Ashes" type="Sprite2D" parent="."]
+position = Vector2(-2, -6)
+scale = Vector2(0.542969, 0.542969)
+texture = ExtResource("2_y2ey3")
+
+[node name="E" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -49)
+scale = Vector2(0.268066, 0.268066)
+texture = ExtResource("4_t2ea5")
